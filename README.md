@@ -1,17 +1,16 @@
 # Multiple-Hand-Detection
+Sorce Code-->
+   
+    import cv2
+    from cvzone.HandTrackingModule import HandDetector
 
-Source Code-->
+    cap = cv2.VideoCapture(0)
+    detector = HandDetector(detectionCon=0.8, maxHands=2)
 
-import cv2
-from cvzone.HandTrackingModule import HandDetector
-
-cap = cv2.VideoCapture(0)
-detector = HandDetector(detectionCon=0.8, maxHands=2)
-
-while True:
-    success, img = cap.read()
-    hands, img = detector.findHands(img)  # With Draw
-    # hands = detector.findHands(img, draw=False)  # No Draw
+    while True:
+        success, img = cap.read()
+        hands, img = detector.findHands(img)  # With Draw
+        # hands = detector.findHands(img, draw=False)  # No Draw
 
     if hands:
         # Hand 1
